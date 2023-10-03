@@ -18,12 +18,11 @@ class UtilisateurController extends Controller
     public function edit($id)
 
 {
-    $profil = Profil::findOrFail($id);
     $user = User::findOrFail($id);
     $users = User::all();
     $profils = Profil::all();
 
-    return view('profile.edition', compact('profil', 'profils', 'users', 'user'));
+    return view('profile.edition', compact('profils', 'users', 'user'));
 }
     public function index()
 {
@@ -59,16 +58,17 @@ public function store(Request $request): RedirectResponse
 
     public function update(Request $request, $id)
 {
-    $validatedData = $request->validate([
+    $validated = $request->validate([
         'name' => 'required',
-        'email' => 'required',
         'profil' => 'required|max:255',
-        'password' => 'required|max:255'
+        'password' => 'required'
     ]);
 
-    User::whereId($id)->update($validatedData);
+    User::whereId($id)->update([
+        'password' => Hash::make($request->password),
+    ]);
 
-    return redirect('/profiles')->with('success', 'Technicien mis à jour avec succès');
+    return redirect('/profiles')->with('success', 'Utilisateur mis à jour avec succès');
 }
 
     /**

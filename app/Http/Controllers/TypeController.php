@@ -16,11 +16,10 @@ class TypeController extends Controller
 
 {
     $profil = Profil::findOrFail($id);
-    $user = User::findOrFail($id);
     $users = User::all();
     $profils = Profil::all();
 
-    return view('type.edit', compact('profil', 'profils', 'users', 'user'));
+    return view('type.edit', compact('profil', 'profils', 'users'));
 }
 
 public function create()

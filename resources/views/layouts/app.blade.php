@@ -37,6 +37,9 @@
         @if (Auth::user()->profil === 'Admin')
             @include('layouts.navigation')
         @endif
+        @if (Auth::user()->profil === 'Informatique')
+            @include('layouts.informatiqueNavigation')
+        @endif
 
 
         <!-- Page Heading -->

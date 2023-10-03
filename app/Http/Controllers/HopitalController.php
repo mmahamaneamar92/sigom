@@ -16,11 +16,10 @@ class HopitalController extends Controller
 
 {
     $hopital = Hopital::findOrFail($id);
-    $user = User::findOrFail($id);
     $users = User::all();
     $hopitals = Hopital::all();
 
-    return view('hopital.edit', compact('hopital', 'hopitals', 'users', 'user'));
+    return view('hopital.edit', compact('hopital', 'hopitals', 'users'));
 }
 
 public function create()

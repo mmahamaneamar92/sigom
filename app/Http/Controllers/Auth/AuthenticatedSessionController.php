@@ -30,6 +30,10 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         //return redirect()->intended(RouteServiceProvider::HOME);
+        if (Auth::user()->profil === 'Informatique'){
+            return redirect('/profiles');
+        }
+
         return redirect('/prestations');
     }
 

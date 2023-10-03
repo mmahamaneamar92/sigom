@@ -16,11 +16,10 @@ class TechnicienController extends Controller
 
 {
     $technicien = Technicien::findOrFail($id);
-    $user = User::findOrFail($id);
     $users = User::all();
     $techniciens = Technicien::all();
 
-    return view('technicien.edit', compact('technicien', 'techniciens', 'users', 'user'));
+    return view('technicien.edit', compact('technicien', 'techniciens', 'users'));
 }
 
 public function create()

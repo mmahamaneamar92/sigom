@@ -16,11 +16,10 @@ class PharmacieController extends Controller
 
 {
     $pharmacie = Pharmacie::findOrFail($id);
-    $user = User::findOrFail($id);
     $users = User::all();
     $pharmacies = Pharmacie::all();
 
-    return view('pharmacie.edit', compact('pharmacie', 'pharmacies', 'users', 'user'));
+    return view('pharmacie.edit', compact('pharmacie', 'pharmacies', 'users'));
 }
 
 public function create()

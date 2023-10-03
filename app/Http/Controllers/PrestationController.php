@@ -24,22 +24,16 @@ class PrestationController extends Controller
 {
     $prestation = Prestation::findOrFail($id);
     $prestations = Prestation::all();
-    $user = User::findOrFail($id);
     $users = User::all();
-    $prescripteur = Prescripteur::findOrFail($id);
     $prescripteurs = Prescripteur::all();
-    $technicien = Technicien::findOrFail($id);
     $techniciens = Technicien::all();
-    $hopital = Hopital::findOrFail($id);
     $hopitals = Hopital::all();
-    $pharmacie = Pharmacie::findOrFail($id);
     $pharmacies = Pharmacie::all();
-    $ap = Ap::findOrFail($id);
     $aps = Ap::all();
 
 
 
-    return view('prestation.edit', compact('prestation', 'ap', 'aps', 'prestations', 'user', 'users', 'prescripteur', 'prescripteurs', 'technicien', 'techniciens', 'hopital', 'hopitals', 'pharmacie', 'pharmacies'));
+    return view('prestation.edit', compact('prestation', 'aps', 'prestations', 'users', 'prescripteurs', 'techniciens', 'hopitals', 'pharmacies'));
 }
 
 public function create()

@@ -16,11 +16,10 @@ class ApController extends Controller
 
 {
     $ap = Ap::findOrFail($id);
-    $user = User::findOrFail($id);
-    $users = User::all();
     $aps = Ap::all();
+    $users = User::all();
 
-    return view('ap.edit', compact('ap', 'aps', 'users', 'user'));
+    return view('ap.edit', compact('ap', 'aps', 'users'));
 }
 
 public function create()

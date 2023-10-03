@@ -16,11 +16,10 @@ class AssureController extends Controller
 
 {
     $assure = Assure::findOrFail($id);
-    $user = User::findOrFail($id);
     $users = User::all();
     $assures = Assure::all();
 
-    return view('assure.edit', compact('assure', 'assures', 'users', 'user'));
+    return view('assure.edit', compact('assure', 'assures', 'users'));
 }
 
 public function create()

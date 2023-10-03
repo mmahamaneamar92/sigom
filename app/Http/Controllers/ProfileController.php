@@ -46,11 +46,9 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        if (Auth::user()->name === 'Admin'){
-            return Redirect::route('profile.index')->with('status', 'profile-updated');
-        }else{
-            return Redirect::route('gestions.index')->with('status', 'profile-updated');
-        }
+
+            return Redirect::route('prestations.index')->with('status', 'profile-updated');
+
 
 
     }

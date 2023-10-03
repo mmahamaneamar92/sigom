@@ -16,11 +16,10 @@ class PrescripteurController extends Controller
 
 {
     $prescripteur = Prescripteur::findOrFail($id);
-    $user = User::findOrFail($id);
     $users = User::all();
     $prescripteurs = Prescripteur::all();
 
-    return view('prescripteur.edit', compact('prescripteur', 'prescripteurs', 'users', 'user'));
+    return view('prescripteur.edit', compact('prescripteur', 'prescripteurs', 'users'));
 }
 
 public function create()

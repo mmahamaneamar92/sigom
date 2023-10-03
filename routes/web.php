@@ -59,4 +59,6 @@ Route::resource('utilisateurs', 'UtilisateurController');
 
 Route::post('/get-prix', 'PrestationController@getPrix')->name('get-prix');
 
+Route::post('/motDePasse', 'PrestationController@motDePasse')->name('motDePasse');
+
 require __DIR__.'/auth.php';

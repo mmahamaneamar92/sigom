@@ -18,12 +18,11 @@ class UserMaterielController extends Controller
 
 {
     $usermateriel = UserMateriel::findOrFail($id);
-    $user = User::findOrFail($id);
     $materiels = Materiel::all();
     $users = User::all();
     $usersmateriels = UserMateriel::all();
 
-    return view('gestion.edit', compact('usermateriel', 'materiels', 'users', 'usersmateriels', 'user'));
+    return view('gestion.edit', compact('usermateriel', 'materiels', 'users', 'usersmateriels'));
 }
 
 public function create()
