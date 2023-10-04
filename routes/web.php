@@ -29,15 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('materiels', 'MaterielController');
-
 Route::resource('profiles', 'ProfileController');
-
-Route::resource('gestions', 'UserMaterielController');
-
-Route::resource('reparations', 'ReparationController');
-
-Route::resource('bordereaux', 'BordereauController');
 
 Route::resource('aps', 'ApController');
 
@@ -59,6 +51,6 @@ Route::resource('utilisateurs', 'UtilisateurController');
 
 Route::post('/get-prix', 'PrestationController@getPrix')->name('get-prix');
 
-Route::post('/motDePasse', 'PrestationController@motDePasse')->name('motDePasse');
+Route::resource('pass', 'PassController');
 
 require __DIR__.'/auth.php';

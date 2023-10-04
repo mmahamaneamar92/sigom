@@ -441,7 +441,7 @@
         <select name="prescripteur" class="form-control">
             @foreach ($prescripteurs as $prescripteur)
                 @if ($prescripteur->code_prescripteur === $prestation->prescripteur)
-                    <option value="{{ $prescripteur->code_prescripteur }}">{{ $prescripteur->prenom_prescripteur }}
+                    <option value="{{ $prescripteur->code_prescripteur }}">{{ $prescripteur->code_prescripteur }} | {{ $prescripteur->prenom_prescripteur }}
                         {{ $prescripteur->nom_prescripteur }}</option>
                 @else
                     <option value=""></option>
@@ -449,7 +449,7 @@
             @endforeach
 
             @foreach ($prescripteurs as $prescripteur)
-                <option value="{{ $prescripteur->code_prescripteur }}">{{ $prescripteur->prenom_prescripteur }}
+                <option value="{{ $prescripteur->code_prescripteur }}">{{ $prescripteur->code_prescripteur }} | {{ $prescripteur->prenom_prescripteur }}
                     {{ $prescripteur->nom_prescripteur }}</option>
             @endforeach
         </select>
@@ -461,7 +461,7 @@
         <select name="technicien" class="form-control">
             @foreach ($techniciens as $technicien)
                 @if ($technicien->code_technicien === $prestation->technicien)
-                    <option value="{{ $technicien->code_technicien }}">{{ $technicien->prenom_technicien }}
+                    <option value="{{ $technicien->code_technicien }}">{{ $technicien->code_technicien }} | {{ $technicien->prenom_technicien }}
                         {{ $technicien->nom_technicien }}</option>
                 @else
                     <option value=""></option>
@@ -469,7 +469,7 @@
             @endforeach
             <option value="">Aucun</option>
             @foreach ($techniciens as $technicien)
-                <option value="{{ $technicien->code_technicien }}">{{ $technicien->prenom_technicien }}
+                <option value="{{ $technicien->code_technicien }}">{{ $technicien->code_technicien }} | {{ $technicien->prenom_technicien }}
                     {{ $technicien->nom_technicien }}</option>
             @endforeach
         </select>
@@ -484,14 +484,14 @@
         <select name="provenance" class="form-control">
             @foreach ($hopitals as $hopital)
                 @if ($hopital->code_hopital === $prestation->provenance)
-                    <option value="{{ $hopital->code_hopital }}">{{ $hopital->nom_hopital }}</option>
+                    <option value="{{ $hopital->code_hopital }}">{{ $hopital->code_hopital }} | {{ $hopital->nom_hopital }}</option>
                 @else
                     <option value=""></option>
                 @endif
             @endforeach
 
             @foreach ($hopitals as $hopital)
-                <option value="{{ $hopital->code_hopital }}">{{ $hopital->nom_hopital }}</option>
+                <option value="{{ $hopital->code_hopital }}">{{ $hopital->code_hopital }} | {{ $hopital->nom_hopital }}</option>
             @endforeach
         </select>
         <x-input-error :messages="$errors->get('provenance')" class="mt-2" />
@@ -502,14 +502,14 @@
         <select name="pharmacie" class="form-control">
             @foreach ($pharmacies as $pharmacie)
                 @if ($pharmacie->code_pharmacie === $prestation->pharmacie)
-                    <option value="{{ $pharmacie->code_pharmacie }}">{{ $pharmacie->nom_pharmacie }}</option>
+                    <option value="{{ $pharmacie->code_pharmacie }}">{{ $pharmacie->code_pharmacie }} | {{ $pharmacie->nom_pharmacie }}</option>
                 @else
                     <option value=""></option>
                 @endif
             @endforeach
             <option value="">Aucune</option>
             @foreach ($pharmacies as $pharmacie)
-                <option value="{{ $pharmacie->code_pharmacie }}">{{ $pharmacie->nom_pharmacie }}</option>
+                <option value="{{ $pharmacie->code_pharmacie }}">{{ $pharmacie->code_pharmacie }} | {{ $pharmacie->nom_pharmacie }}</option>
             @endforeach
         </select>
         <x-input-error :messages="$errors->get('pharmacie')" class="mt-2" />
@@ -542,6 +542,10 @@
         <x-primary-button class="ml-4">
             {{ __('Modifier') }}
         </x-primary-button>
+    </div>
+
+    <div class="flex items-center justify-end mt-4">
+
     </div>
     </form>
 </x-app-layout>

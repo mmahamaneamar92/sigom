@@ -40,13 +40,6 @@
             <x-input-error class="mt-2" :messages="$errors->get('profil')" />
         </div>
 
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password"
-                value="$user->password" />
-            <x-input-error class="mt-2" :messages="$errors->get('password')" />
-        </div>
-
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
             <a href="{{ route('prestations.index') }}"

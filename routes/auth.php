@@ -35,16 +35,6 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.store');
 
-    Route::get('registerMateriel', [RegisteredMaterielController::class, 'create'])
-                ->name('registerMateriel');
-
-    Route::post('registerMateriel', [RegisteredMaterielController::class, 'store']);
-
-    Route::get('loginMateriel', [AuthenticatedSessionController::class, 'create'])
-                ->name('loginMateriel');
-
-    Route::post('loginMateriel', [AuthenticatedSessionController::class, 'store']);
-
 });
 
 Route::middleware('auth')->group(function () {
@@ -68,19 +58,6 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
-
-    Route::get('registerMateriel', [RegisteredMaterielController::class, 'create'])
-                ->name('registerMateriel');
-
-    Route::post('registerMateriel', [RegisteredMaterielController::class, 'store']);
-
-    Route::get('loginMateriel', [AuthenticatedSessionController::class, 'create'])
-                ->name('loginMateriel');
-
-    Route::post('loginMateriel', [AuthenticatedSessionController::class, 'store']);
-
-    Route::get('showMateriel', [RegisteredMaterielController::class, 'show'])
-                ->name('showMateriel');
 
     Route::get('/prestRech', 'PrestationController@recherche')->name('prestRech');
 

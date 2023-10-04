@@ -60,13 +60,10 @@ public function store(Request $request): RedirectResponse
 {
     $validated = $request->validate([
         'name' => 'required',
-        'profil' => 'required|max:255',
-        'password' => 'required'
+        'profil' => 'required'
     ]);
 
-    User::whereId($id)->update([
-        'password' => Hash::make($request->password),
-    ]);
+    User::whereId($id)->update($validated);
 
     return redirect('/profiles')->with('success', 'Utilisateur mis à jour avec succès');
 }
