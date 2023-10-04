@@ -39,12 +39,12 @@
         });
 
         function obtenir(ap1) {
-            foreach ($aps as $ap)
-                if (ap1 === {{ $ap->code_ap }})
-                    return {{ $ap->prix_public_ap }}
-                else
-                    return {{ $ap->prix_public_ap }}
-                endif
+            foreach($aps as $ap)
+            if (ap1 === {{ $ap->code_ap }})
+                return {{ $ap->prix_public_ap }}
+            else
+                return {{ $ap->prix_public_ap }}
+            endif
             endforeach
 
         }
@@ -401,6 +401,14 @@
 
     <!-- Entrer et Nom -->
     <div class="input-group mb-3">
+        <x-input-label class="input-group-text" for="typeFeuille" :value="__('Type Feuille')" />
+        <select name="typeFeuille" class="form-control">
+            <option value=""></option>
+            <option value="23 ">23</option>
+            <option value="24 ">24</option>
+        </select>
+        <x-input-error :messages="$errors->get('typeFeuille')" class="mt-2" />
+
         <x-input-label class="input-group-text" for="feuille" :value="__('N° Feuille de soin')" />
         <x-text-input id="feuille" class="form-control" type="text" name="feuille" :value="old('feuille')" autofocus
             autocomplete="feuille" />

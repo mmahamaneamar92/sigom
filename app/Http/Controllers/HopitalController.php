@@ -29,9 +29,11 @@ public function create()
 
 public function store(Request $request)
 {
+    $nom = strtoupper($request->nom_hopital);
+
     $hopital = Hopital::create([
         'code_hopital' => $request->code_hopital,
-        'nom_hopital' => $request->nom_hopital,
+        'nom_hopital' => $nom,
     ]);
 
     event(new Registered($hopital));

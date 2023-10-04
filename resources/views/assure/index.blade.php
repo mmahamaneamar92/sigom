@@ -57,7 +57,14 @@
             <td class="table-primary">{{ $assure->numero_assurer }}</td>
             <td class="table-primary">{{ $assure->prenom }}</td>
             <td class="table-primary">{{ $assure->nom }}</td>
-            <td class="table-primary">{{ $assure->tel }}</td>
+            <td class="table-primary">
+                @php
+                    $telephone = $assure->tel;
+                    $groupes = str_split($telephone, 2);
+                    $tel = implode(' ', $groupes);
+                @endphp
+                {{ $tel }}
+            </td>
             <td class="table-primary">{{ $assure->ogd }}</td>
 
 

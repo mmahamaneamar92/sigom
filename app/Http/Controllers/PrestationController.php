@@ -13,6 +13,7 @@ use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PrestationController extends Controller
 {
@@ -43,6 +44,9 @@ public function create()
 
 public function store(Request $request)
 {
+    $typeFeuille = $request->input('typeFeuille');
+    $feuille = DB::raw("CONCAT('$typeFeuille', ' ', '$request->feuille')");
+
     $prestation = Prestation::create([
         'date' => $request->date,
         'assure' => $request->assure,
@@ -52,7 +56,7 @@ public function store(Request $request)
         'technicien' => $request->technicien,
         'provenance' => $request->provenance,
         'pharmacie' => $request->pharmacie,
-        'feuille' => $request->feuille,
+        'feuille' => $feuille,
         'controleur' => $request->controleur,
         'ap1' => $request->ap1,
         'ap2' => $request->ap2,
@@ -115,7 +119,7 @@ public function index()
         'date' => 'required',
         'assure' => 'required|max:13',
         'nature_examen' => '',
-        'renseignement' => 'required|max:255',
+        'renseignement' => '',
         'prescripteur' => 'required|max:255',
         'technicien' => '',
         'provenance' => 'required',

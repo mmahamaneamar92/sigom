@@ -29,9 +29,11 @@ public function create()
 
 public function store(Request $request)
 {
+    $nom = strtoupper($request->nom_pharmacie);
+
     $pharmacie = Pharmacie::create([
         'code_pharmacie' => $request->code_pharmacie,
-        'nom_pharmacie' => $request->nom_pharmacie,
+        'nom_pharmacie' => $nom,
     ]);
 
     event(new Registered($pharmacie));

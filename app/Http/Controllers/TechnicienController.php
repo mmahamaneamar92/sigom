@@ -29,10 +29,13 @@ public function create()
 
 public function store(Request $request)
 {
+
+    $nom = strtoupper($request->nom_technicien);
+
     $technicien = Technicien::create([
         'code_technicien' => $request->code_technicien,
         'prenom_technicien' => $request->prenom_technicien,
-        'nom_technicien' => $request->nom_technicien,
+        'nom_technicien' => $nom,
     ]);
 
     event(new Registered($technicien));

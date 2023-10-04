@@ -597,7 +597,7 @@
 
             <x-input-label class="input-group-text" for="renseignement" :value="__('Renseignement Clinique')" />
             <textarea class="form-control" id="renseignement" aria-label="With textarea" name="renseignement"
-                :value="old('renseignement')" required autofocus autocomplete="renseignement"></textarea>
+                :value="old('renseignement')" autofocus autocomplete="renseignement"></textarea>
             <x-input-error :messages="$errors->get('renseignement')" class="mt-2" />
         </div>
 
@@ -653,6 +653,13 @@
 
         <!-- Entrer et Nom -->
         <div class="input-group mb-3">
+            <x-input-label class="input-group-text" for="typeFeuille" :value="__('Type Feuille')" />
+            <select name="typeFeuille" class="form-control">
+                <option value="">Aucun</option>
+                <option value="23FS N° ">23FS N°</option>
+                <option value="N° 21B ">N° 21B</option>
+            </select>
+
             <x-input-label class="input-group-text" for="feuille" :value="__('N° Feuille de soin')" />
             <x-text-input id="feuille" class="form-control" type="text" name="feuille" :value="old('feuille')"
                 autofocus autocomplete="feuille" />

@@ -29,10 +29,12 @@ public function create()
 
 public function store(Request $request)
 {
+    $nom = strtoupper($request->nom);
+
     $assure = Assure::create([
         'numero_assurer' => $request->numero_assurer,
         'prenom' => $request->prenom,
-        'nom' => $request->nom,
+        'nom' => $nom,
         'tel' => $request->tel,
         'ogd' => $request->ogd,
     ]);

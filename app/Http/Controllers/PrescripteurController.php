@@ -29,10 +29,13 @@ public function create()
 
 public function store(Request $request)
 {
+
+    $nom = strtoupper($request->nom_prescripteur);
+
     $prescripteur = Prescripteur::create([
         'code_prescripteur' => $request->code_prescripteur,
         'prenom_prescripteur' => $request->prenom_prescripteur,
-        'nom_prescripteur' => $request->nom_prescripteur,
+        'nom_prescripteur' => $nom,
     ]);
 
     event(new Registered($prescripteur));
