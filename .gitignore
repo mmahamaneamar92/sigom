@@ -1,0 +1,62 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+/storage/logs/
+/storage/framework/
+*.sql
+.env
+.env.*
+vendor/
+node_modules/
+/app/Http/Controllers/AgentController copy.php
+/app/Http/Controllers/DashboardController copy.php
+/resources/views/agent/database_connection.php
+/resources/views/agent/index.blade copy.php
+/resources/views/agent/index11.php
+/resources/views/dashboard/index.blade copy.php
+/resources/views/dashboard/rapport-agents-pdf.blade copy.php
+/resources/views/missions/create.blade copy.php
+/resources/views/missions/index.blade copy.php
+/resources/views/missions/show.blade copy.php
+/routes/web copy.php
+/resources/views/direction copy/
+/app/Http/Controllers/AssureController.php
+/app/Http/Controllers/HopitalController.php
+/app/Http/Controllers/PharmacieController.php
+/app/Http/Controllers/PrestationController.php
+/app/Http/Controllers/TechnicienController.php
+/resources/views/assure/
+/resources/views/hopital/
+/resources/views/pharmacie/
+/resources/views/prestation/
+/resources/views/technicien/
+/database/migrations/2023_09_20_120941_create_assures_table.php
+/database/migrations/2023_09_20_121622_create_techniciens_table.php
+/database/migrations/2023_09_20_121706_create_hopitals_table.php
+/database/migrations/2023_09_20_121746_create_pharmacies_table.php
+/database/migrations/2023_09_24_183342_create_prestations_table.php
+/app/Http/Controllers/AldController.php
+/app/Http/Controllers/ApController.php
+/app/Http/Controllers/PrescripteurController.php
+/resources/views/ap/
+/resources/views/prescripteur/
+/resources/views/reparation/
+/database/migrations/2023_09_20_121331_create_aps_table.php
+/database/migrations/2023_09_20_121356_create_alds_table.php
+/database/migrations/2023_09_20_121543_create_prescripteurs_table.php
