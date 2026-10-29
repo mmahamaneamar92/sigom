@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profil;
 use App\Models\User;
+use App\Models\Direction;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,16 +22,18 @@ class UtilisateurController extends Controller
     $user = User::findOrFail($id);
     $users = User::all();
     $profils = Profil::all();
+    $directs = Direction::all();
 
-    return view('profile.edition', compact('profils', 'users', 'user'));
+    return view('profile.edition', compact('profils', 'users', 'user', 'directs'));
 }
     public function index()
 {
     $users = User::orderBy('created_at', 'desc')->paginate(5);
     //$usersMateriels = UserMateriel::all();
     $profils = Profil::all();
+    $directs = Direction::all();
 
-    return view('profile.index', compact('profils', 'users'));
+    return view('profile.index', compact('profils', 'users','directs'));
 }
 
 public function store(Request $request): RedirectResponse
@@ -38,6 +41,7 @@ public function store(Request $request): RedirectResponse
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'profil' => ['required', 'string', 'max:255'],
+            'direct' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -46,6 +50,7 @@ public function store(Request $request): RedirectResponse
             'name' => $request->name,
             'email' => $request->email,
             'profil' => $request->profil,
+            'direct' => $request->direct,
             'password' => Hash::make($request->password),
         ]);
 
@@ -60,7 +65,8 @@ public function store(Request $request): RedirectResponse
 {
     $validated = $request->validate([
         'name' => 'required',
-        'profil' => 'required'
+        'profil' => 'required',
+        'direction_id' => 'required'
     ]);
 
     User::whereId($id)->update($validated);
@@ -76,6 +82,6 @@ public function store(Request $request): RedirectResponse
     $user = User::findOrFail($id);
     $user->delete();
 
-    return redirect('/profiles')->with('success', 'Matériel supprimer avec succèss');
+    return redirect('/profiles')->with('success', 'Utilisateur supprimer avec succèss');
 }
 }

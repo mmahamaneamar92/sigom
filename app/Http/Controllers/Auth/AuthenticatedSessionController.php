@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
             return redirect('/profiles');
         }
 
-        return redirect('/prestations');
+        return redirect('/dashboard');
     }
 
     /**
@@ -42,17 +42,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): View
     {
-        $user = Auth::user()->name == 'Admin';
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        if ($user){
-            return view('auth.log');
-        }else{
-            return view('auth.log');
-        }
+        return view('auth.log');
     }
 }

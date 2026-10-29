@@ -1,6 +1,6 @@
 <!-- index.blade.php -->
-
-<x-app-layout>
+@extends('layouts.ap')
+@section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 
     <link rel="canonical"
@@ -74,4 +74,4 @@
     <div class="flex items-center justify-end mt-4">
 
     </div>
-</x-app-layout>
+    @endsection

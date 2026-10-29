@@ -6,6 +6,7 @@ use App\Models\Prescripteur;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PrescripteurController extends Controller
 {
@@ -13,68 +14,70 @@ class PrescripteurController extends Controller
      * Display the user's profile form.
      */
     public function edit($id)
+    {
+        $prescripteur = Prescripteur::findOrFail($id);
+        $users = User::all();
+        $prescripteurs = Prescripteur::all();
 
-{
-    $prescripteur = Prescripteur::findOrFail($id);
-    $users = User::all();
-    $prescripteurs = Prescripteur::all();
+        return view('prescripteur.edit', compact('prescripteur', 'prescripteurs', 'users'));
+    }
 
-    return view('prescripteur.edit', compact('prescripteur', 'prescripteurs', 'users'));
-}
+    public function create()
+    {
+        return view('prescripteur.index');
+    }
 
-public function create()
-{
-    return view('prescripteur.index');
-}
+    public function store(Request $request)
+    {
 
-public function store(Request $request)
-{
+        $ref_prescripteur = $request->input('ref_prescripteur');
+        $code = DB::raw("CONCAT('$ref_prescripteur', ' ', '$request->code_prescripteur')");
 
-    $nom = strtoupper($request->nom_prescripteur);
+        $nom = strtoupper($request->nom_prescripteur);
 
-    $prescripteur = Prescripteur::create([
-        'code_prescripteur' => $request->code_prescripteur,
-        'prenom_prescripteur' => $request->prenom_prescripteur,
-        'nom_prescripteur' => $nom,
-    ]);
+        $prescripteur = Prescripteur::create([
+            'code_prescripteur' => $code,
+            'prenom_prescripteur' => $request->prenom_prescripteur,
+            'nom_prescripteur' => $nom,
+        ]);
 
-    event(new Registered($prescripteur));
+        event(new Registered($prescripteur));
 
-    return redirect('/prescripteurs')->with('success', 'Prescripteur créer avec succèss');
-}
+        return redirect('/prescripteurs')->with('success', 'Prescripteur créer avec succèss');
+    }
 
-public function index()
-{
-    $users = User::all();
-    $prescripteurs = Prescripteur::orderBy('created_at', 'desc')->paginate(5);
+    public function index()
+    {
+        $users = User::all();
+        $prescripteurs = Prescripteur::orderBy('created_at', 'desc')->paginate(10);
 
-    return view('prescripteur.index', compact('prescripteurs', 'users'));
-}
+        return view('prescripteur.index', compact('prescripteurs', 'users'));
+    }
 
     /**
      * Update the user's profile information.
      */
     public function update(Request $request, $id)
-{
-    $validatedData = $request->validate([
-        'code_prescripteur' => 'required',
-        'prenom_prescripteur' => 'required',
-        'nom_prescripteur' => 'required'
-    ]);
+    {
+        $validatedData = $request->validate([
+            'code_prescripteur' => 'required',
+            'prenom_prescripteur' => 'required',
+            'nom_prescripteur' => 'required',
+        ]);
 
-    Prescripteur::whereId($id)->update($validatedData);
+        Prescripteur::whereId($id)->update($validatedData);
 
-    return redirect('/prescripteurs')->with('success', 'Prescripteur mis à jour avec succès');
-}
+        return redirect('/prescripteurs')->with('success', 'Prescripteur mis à jour avec succès');
+    }
 
     /**
      * Delete the user's account.
      */
     public function destroy($id)
-{
-    $prescripteur = Prescripteur::findOrFail($id);
-    $prescripteur->delete();
+    {
+        $prescripteur = Prescripteur::findOrFail($id);
+        $prescripteur->delete();
 
-    return redirect('/prescripteurs')->with('success', 'prescripteur supprimer avec succèss');
-}
+        return redirect('/prescripteurs')->with('success', 'prescripteur supprimer avec succèss');
+    }
 }

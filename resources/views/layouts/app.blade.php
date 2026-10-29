@@ -31,17 +31,6 @@
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
 
-        @if (Auth::user()->profil === 'Contrôleur')
-            @include('layouts.controleurNavigation')
-        @endif
-        @if (Auth::user()->profil === 'Admin')
-            @include('layouts.navigation')
-        @endif
-        @if (Auth::user()->profil === 'Informatique')
-            @include('layouts.informatiqueNavigation')
-        @endif
-
-
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-white dark:bg-gray-800 shadow">

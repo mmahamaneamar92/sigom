@@ -83,10 +83,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap2)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -121,10 +120,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap3)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -159,10 +157,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap4)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -197,10 +194,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap5)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -235,10 +231,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap6)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -273,10 +268,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap7)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -311,10 +305,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap8)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -349,10 +342,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap9)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -387,10 +379,9 @@
             @foreach ($aps as $ap)
                 @if ($ap->code_ap === $prestation->ap10)
                     <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
+            <option value=""></option>
             @foreach ($aps as $ap)
                 <option value="{{ $ap->code_ap }}">{{ $ap->designation_ap }}</option>
             @endforeach
@@ -441,15 +432,15 @@
         <select name="prescripteur" class="form-control">
             @foreach ($prescripteurs as $prescripteur)
                 @if ($prescripteur->code_prescripteur === $prestation->prescripteur)
-                    <option value="{{ $prescripteur->code_prescripteur }}">{{ $prescripteur->code_prescripteur }} | {{ $prescripteur->prenom_prescripteur }}
+                    <option value="{{ $prescripteur->code_prescripteur }}">{{ $prescripteur->code_prescripteur }} |
+                        {{ $prescripteur->prenom_prescripteur }}
                         {{ $prescripteur->nom_prescripteur }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
-
+            <option value=""></option>
             @foreach ($prescripteurs as $prescripteur)
-                <option value="{{ $prescripteur->code_prescripteur }}">{{ $prescripteur->code_prescripteur }} | {{ $prescripteur->prenom_prescripteur }}
+                <option value="{{ $prescripteur->code_prescripteur }}">{{ $prescripteur->code_prescripteur }} |
+                    {{ $prescripteur->prenom_prescripteur }}
                     {{ $prescripteur->nom_prescripteur }}</option>
             @endforeach
         </select>
@@ -461,15 +452,15 @@
         <select name="technicien" class="form-control">
             @foreach ($techniciens as $technicien)
                 @if ($technicien->code_technicien === $prestation->technicien)
-                    <option value="{{ $technicien->code_technicien }}">{{ $technicien->code_technicien }} | {{ $technicien->prenom_technicien }}
+                    <option value="{{ $technicien->code_technicien }}">{{ $technicien->code_technicien }} |
+                        {{ $technicien->prenom_technicien }}
                         {{ $technicien->nom_technicien }}</option>
-                @else
-                    <option value=""></option>
                 @endif
             @endforeach
             <option value="">Aucun</option>
             @foreach ($techniciens as $technicien)
-                <option value="{{ $technicien->code_technicien }}">{{ $technicien->code_technicien }} | {{ $technicien->prenom_technicien }}
+                <option value="{{ $technicien->code_technicien }}">{{ $technicien->code_technicien }} |
+                    {{ $technicien->prenom_technicien }}
                     {{ $technicien->nom_technicien }}</option>
             @endforeach
         </select>
@@ -484,14 +475,14 @@
         <select name="provenance" class="form-control">
             @foreach ($hopitals as $hopital)
                 @if ($hopital->code_hopital === $prestation->provenance)
-                    <option value="{{ $hopital->code_hopital }}">{{ $hopital->code_hopital }} | {{ $hopital->nom_hopital }}</option>
-                @else
-                    <option value=""></option>
+                    <option value="{{ $hopital->code_hopital }}">{{ $hopital->code_hopital }} |
+                        {{ $hopital->nom_hopital }}</option>
                 @endif
             @endforeach
-
+            <option value=""></option>
             @foreach ($hopitals as $hopital)
-                <option value="{{ $hopital->code_hopital }}">{{ $hopital->code_hopital }} | {{ $hopital->nom_hopital }}</option>
+                <option value="{{ $hopital->code_hopital }}">{{ $hopital->code_hopital }} |
+                    {{ $hopital->nom_hopital }}</option>
             @endforeach
         </select>
         <x-input-error :messages="$errors->get('provenance')" class="mt-2" />
@@ -502,14 +493,14 @@
         <select name="pharmacie" class="form-control">
             @foreach ($pharmacies as $pharmacie)
                 @if ($pharmacie->code_pharmacie === $prestation->pharmacie)
-                    <option value="{{ $pharmacie->code_pharmacie }}">{{ $pharmacie->code_pharmacie }} | {{ $pharmacie->nom_pharmacie }}</option>
-                @else
-                    <option value=""></option>
+                    <option value="{{ $pharmacie->code_pharmacie }}">{{ $pharmacie->code_pharmacie }} |
+                        {{ $pharmacie->nom_pharmacie }}</option>
                 @endif
             @endforeach
             <option value="">Aucune</option>
             @foreach ($pharmacies as $pharmacie)
-                <option value="{{ $pharmacie->code_pharmacie }}">{{ $pharmacie->code_pharmacie }} | {{ $pharmacie->nom_pharmacie }}</option>
+                <option value="{{ $pharmacie->code_pharmacie }}">{{ $pharmacie->code_pharmacie }} |
+                    {{ $pharmacie->nom_pharmacie }}</option>
             @endforeach
         </select>
         <x-input-error :messages="$errors->get('pharmacie')" class="mt-2" />

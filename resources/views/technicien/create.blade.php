@@ -25,6 +25,12 @@
     <!-- Géstion Des Entrées -->
 
     <div class="input-group mb-3">
+        <x-input-label class="input-group-text" for="ref_technicien" :value="__('Reference')" />
+        <select name="ref_technicien" class="form-control">
+            <option value="TS ">TS</option>
+            <option value="AM ">AM</option>
+        </select>
+
         <x-input-label class="input-group-text" for="code_technicien" :value="__('Code')" />
         <x-text-input id="code_technicien" class="form-control" type="text" name="code_technicien" :value="old('code_technicien')"
             required autofocus autocomplete="code_technicien" />

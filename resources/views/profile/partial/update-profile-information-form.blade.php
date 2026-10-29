@@ -40,6 +40,22 @@
             <x-input-error class="mt-2" :messages="$errors->get('profil')" />
         </div>
 
+        <div>
+            <x-input-label for="direct" :value="__('Direction')" />
+            <select name="direction_id" class="block mt-1 w-full">
+                @foreach ($directs as $direct)
+                    @if ($direct->id === $user->direction_id)
+                        <option value="{{ $direct->id }}">{{ $direct->nom_direction }}</option>
+                    @endif
+                @endforeach
+
+                @foreach ($directs as $direct)
+                    <option value="{{ $direct->id }}">{{ $direct->nom_direction }}</option>
+                @endforeach
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('direction_id')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
             <a href="{{ route('prestations.index') }}"

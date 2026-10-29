@@ -44,7 +44,7 @@ public function store(Request $request)
 public function index()
 {
     $users = User::all();
-    $pharmacies = Pharmacie::orderBy('created_at', 'desc')->paginate(5);
+    $pharmacies = Pharmacie::orderBy('created_at', 'desc')->paginate(10);
 
     return view('pharmacie.index', compact('pharmacies', 'users'));
 }

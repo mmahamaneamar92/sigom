@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Direction;
 
 class User extends Authenticatable
 {
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'profil',
+        'direction_id',
     ];
 
     /**
@@ -49,4 +51,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Profil::class);
     }
+
+    public function direction()
+{
+    return $this->belongsTo(
+        Direction::class,
+        'direction_id'
+    );
+}
 }

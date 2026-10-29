@@ -656,7 +656,7 @@
             <x-input-label class="input-group-text" for="typeFeuille" :value="__('Type Feuille')" />
             <select name="typeFeuille" class="form-control">
                 <option value="">Aucun</option>
-                <option value="23FS N° ">23FS N°</option>
+                <option value="23FS 2 N° ">23FS 2 N°</option>
                 <option value="N° 21B ">N° 21B</option>
             </select>
 

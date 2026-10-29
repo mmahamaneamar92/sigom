@@ -44,8 +44,17 @@
         <x-input-error :messages="$errors->get('email')" class="mt-2" />
     </div>
 
-    <!-- Profil -->
+    <!-- Direction -->
     <div class="input-group mb-3">
+        <x-input-label class="input-group-text" for="direct" :value="__('Direction')" />
+        <select name="direct" class="form-control">
+            <option value=""></option>
+            @foreach ($directs as $direct)
+                <option value="{{ $direct->nom_direction }}">{{ $direct->nom_direction }}</option>
+            @endforeach
+        </select>
+        <x-input-error :messages="$errors->get('direct')" class="mt-2" />
+
         <x-input-label class="input-group-text" for="password" :value="__('Password')" />
         <x-text-input id="password" class="form-control" type="password" name="password" required
             autocomplete="new-password" />

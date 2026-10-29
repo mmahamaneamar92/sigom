@@ -6,6 +6,7 @@ use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Materiel;
 use App\Models\Profil;
 use App\Models\User;
+use App\Models\Direction;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +30,9 @@ class ProfileController extends Controller
     //$users = User::all();
     $users = User::orderBy('created_at', 'desc')->paginate(10);
     $profils = Profil::all();
+    $directs = Direction::all();
 
-    return view('profile.index', compact('users', 'profils'));
+    return view('profile.index', compact('users', 'profils', 'directs'));
 }
 
     /**

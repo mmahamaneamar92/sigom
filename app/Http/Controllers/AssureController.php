@@ -47,7 +47,7 @@ public function store(Request $request)
 public function index()
 {
     $users = User::all();
-    $assures = Assure::orderBy('created_at', 'desc')->paginate(5);
+    $assures = Assure::orderBy('created_at', 'desc')->paginate(10);
 
     return view('assure.index', compact('assures', 'users'));
 }

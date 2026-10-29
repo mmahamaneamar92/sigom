@@ -25,19 +25,28 @@
     <!-- Géstion Des Entrées -->
 
     <div class="input-group mb-3">
+
+        <x-input-label class="input-group-text" for="ref_prescripteur" :value="__('Reference')" />
+        <select name="ref_prescripteur" class="form-control">
+            <option value="MG ">MG</option>
+            <option value="SF ">SF</option>
+            <option value="MS ">MS</option>
+        </select>
+        <x-input-error :messages="$errors->get('ref_prescripteur')" class="mt-2" />
+
         <x-input-label class="input-group-text" for="code_prescripteur" :value="__('Code')" />
-        <x-text-input id="code_prescripteur" class="form-control" type="text" name="code_prescripteur" :value="old('code_prescripteur')" required
-            autofocus autocomplete="code_prescripteur" />
+        <x-text-input id="code_prescripteur" class="form-control" type="text" name="code_prescripteur"
+            :value="old('code_prescripteur')" required autofocus autocomplete="code_prescripteur" />
         <x-input-error :messages="$errors->get('code_prescripteur')" class="mt-2" />
 
         <x-input-label class="input-group-text" for="prenom_prescripteur" :value="__('Prénom')" />
-        <x-text-input id="prenom_prescripteur" class="form-control" type="text" name="prenom_prescripteur" :value="old('prenom_prescripteur')"
-            required autofocus autocomplete="prenom_prescripteur" />
+        <x-text-input id="prenom_prescripteur" class="form-control" type="text" name="prenom_prescripteur"
+            :value="old('prenom_prescripteur')" required autofocus autocomplete="prenom_prescripteur" />
         <x-input-error :messages="$errors->get('prenom_prescripteur')" class="mt-2" />
 
         <x-input-label class="input-group-text" for="nom_prescripteur" :value="__('Nom')" />
-        <x-text-input id="nom_prescripteur" class="form-control" type="text" name="nom_prescripteur" :value="old('nom_prescripteur')"
-            required autofocus autocomplete="nom_prescripteur" />
+        <x-text-input id="nom_prescripteur" class="form-control" type="text" name="nom_prescripteur"
+            :value="old('nom_prescripteur')" required autofocus autocomplete="nom_prescripteur" />
         <x-input-error :messages="$errors->get('nom_prescripteur')" class="mt-2" />
     </div>
 
